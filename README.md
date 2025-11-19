@@ -19,3 +19,5 @@ Tool documentation in code/multicache/
 ## Status
 
 Finished.
+
+[Link to publication.](https://ginerlukas.com/publications/papers/SMTCache.pdf)
