@@ -1,0 +1,29 @@
+{
+    "title": "Load miss - combined benchmark - mail+stream",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "median",
+    "bars": [
+        "normal",
+        "mail_stream_smt_30s",
+        "cc"
+    ],
+    "trace": {
+        "mail": {
+            "filter": "mail",
+            "folders": {
+                "normal": "/media/arn/GODxSSD2/Traces/mail_lm_5s",
+                "mail_stream_smt_30s": "/media/arn/GODxSSD2/Traces/mail_stream_lm_smt_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_mail_lm_5s"
+            }
+        },
+        "stream": {
+            "filter": "stream",
+            "folders": {
+                "normal": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+                "mail_stream_smt_30s": "/media/arn/GODxSSD2/Traces/mail_stream_lm_smt_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_stream_lm_5s"
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "title": "threads compared between 2 setups",
+    "type": "tcompare",
+    "statistic": "ips",
+    "central_tendency": "a_mean",
+    "trace": {
+        "filter": "db",
+        "folders": {
+            "app_db_smt": "/media/arn/GODxSSD2/Traces/app_db_lm_smt_30s",
+            "db_file_smt": "/media/arn/GODxSSD2/Traces/db_file_lm_smt_30s",
+            "db_mail_smt": "/media/arn/GODxSSD2/Traces/db_mail_lm_smt_30s",
+            "db_stream_smt": "/media/arn/GODxSSD2/Traces/db_stream_lm_smt_30s",
+            "db_web_smt": "/media/arn/GODxSSD2/Traces/db_web_lm_smt_30s"
+        }
+    }
+}

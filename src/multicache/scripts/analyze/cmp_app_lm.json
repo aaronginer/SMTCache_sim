@@ -1,0 +1,19 @@
+{
+    "title": "Stats for APP for benchmarks including app",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "a_mean",
+    "bars": [
+        "app",
+        "cc"
+    ],
+    "trace": {
+        "app": {
+            "filter": "app",
+            "folders": {
+                "app": "/media/arn/GODxSSD2/Traces/app_file_lm_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_app_file_lm_30s"
+            }
+        }
+    }
+}

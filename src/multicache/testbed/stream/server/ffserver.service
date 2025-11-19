@@ -1,0 +1,10 @@
+[Unit]
+Description=ffserver service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ffserver
+
+[Install]
+WantedBy=multi-user.target

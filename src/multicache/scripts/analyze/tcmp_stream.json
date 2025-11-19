@@ -1,0 +1,13 @@
+{
+    "title": "Load miss for threads compared between 2 setups",
+    "type": "tcompare",
+    "statistic": "lmr",
+    "central_tendency": "a_mean",
+    "trace": {
+        "filter": "stream",
+        "folders": {
+            "stream": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+            "cc_stream": "/media/arn/GODxSSD2/Traces/cc_stream_lm_5s"
+        }
+    }
+}

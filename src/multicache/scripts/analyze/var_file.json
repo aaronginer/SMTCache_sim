@@ -1,0 +1,9 @@
+{
+    "title": "Data variance plot",
+    "type": "var",
+    "statistic": "lmr",
+    "trace": {
+        "filter": "file",
+        "folder": "/media/arn/GODxSSD2/Traces/file_lm_5s"
+    }
+}

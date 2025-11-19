@@ -1,0 +1,47 @@
+{
+    "title": "",
+    "type": "compare",
+    "statistic": "ps",
+    "central_tendency": "a_mean",
+    "bars": [
+        "Normal"
+    ],
+    "trace": {
+        "app": {
+            "filter": "app",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/app_lm_5s"
+            }
+        },
+        "db": {
+            "filter": "db",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/db_lm_5s"
+            }
+        },
+        "file": {
+            "filter": "file",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/file_lm_5s"
+            }
+        },
+        "mail": {
+            "filter": "mail",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/mail_lm_5s"
+            }
+        },
+        "stream": {
+            "filter": "stream",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/stream_lm_5s"
+            }
+        },
+        "web": {
+            "filter": "web",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/web_lm_5s"
+            }
+        }
+    }
+}

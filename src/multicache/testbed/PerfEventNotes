@@ -1,0 +1,82 @@
+Bit21: AnyThread -> count only when event occurs in thread or count for any hyperthread on same physical core.
+
+IA32_PERF_GLOBAL_CTRL: enable / disable counters
+
+
+
+Disable Hyperthreading: https://serverfault.com/questions/235825/disable-hyperthreading-from-within-linux-no-access-to-bios
+
+
+
+Perf events asm tutorial: https://pittrasg.github.io/blog/2020/pmusx86/
+
+
+MSR DOC: https://github.com/ia32-doc/ia32-doc/blob/main/yaml/Intel/ModelSpecificRegisters/ArchitecturalMsr.yml
+
+PERFEVTSEL:
+
+0: 0x186
+1: 0x187
+2: 0x188
+3: 0x189
+...
+
+PMC:
+
+0: 0xC1
+1: 0xC2
+2: 0xC3
+3: 0xC3
+...
+
+Hit/Miss rates L1: 
+
+1) https://hadibrais.wordpress.com/2019/03/26/an-introduction-to-the-cache-hit-and-miss-performance-monitoring-events/
+2) https://community.intel.com/t5/Analyzers/cache-hit-miss-rate-calculation-cascadelake-platform/m-p/1177546
+3) https://community.intel.com/t5/Analyzers/Does-anyone-knows-why-L1D-cache-miss-rate-is-high/td-p/1112352
+
+
+
+ALL_LOADS = L1_MISS + L1_HIT + FB_HIT
+
+Pure L1 Miss-rate = L1_MISS / ALL_LOADS
+
+
+Perfetch event successful, prefetch counter -> disable prefetcher?
+
+
+Influence fileserver -> apache for example?
+
+
+More on interesting events: https://stackoverflow.com/questions/62821668/why-wont-perf-report-dcache-store-misses
+
+
+Guide for miss-rates (load/store): https://community.intel.com/t5/Analyzers/Cache-Miss-Ratio-for-L1-L2-L3-Please-Help/td-p/1031325
+
+
+Counter makeups: https://community.intel.com/t5/Software-Tuning-Performance/How-to-count-L1-cache-miss-hit-on-Intel-Haswell-4790/m-p/1081690
+
+MSR_MISC_FEATURE_CONTROL: disable l1 hardware prefetcher (wrmsr -a 0x14a 6)
+
+
+Godlike performance counter article: https://gist.github.com/travisdowns/90a588deaaa1b93559fe2b8510f2a739
+
+
+
+	/// perf events for sky/kabylake
+	u64 l1_miss =  0x004308d1;
+	u64 l1_hit =  0x004301d1;
+	u64 all_loads = 0x004381d0;
+	u64 all_stores = 0x004382d0;
+	u64 l1d_replacement =  0x00430151;
+	u64 l2_all_rfo =  0x0043e224;
+
+	u64 disable_mask = ~(1<<22);
+
+	/// PERFEVTSELX registers
+	u64 evtsel0 = 0x186;
+	u64 evtsel1 = 0x187;
+	u64 evtsel2 = 0x188;
+	u64 evtsel3 = 0x189;
+	u64 evtsel4 = 0x18a;
+	u64 evtsel5 = 0x18b;

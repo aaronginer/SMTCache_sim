@@ -1,0 +1,16 @@
+{
+    "title": "",
+    "type": "hist",
+    "statistic": "er",
+    "trace": {
+        "filter": "file",
+        "folders": {
+            "file_cpc5": "/media/arn/GODxSSD2/Traces/file_ssv_5s_cpc5",
+            "app_file_cpc5": "/media/arn/GODxSSD2/Traces/app_file_ssv_smt_30s_cpc5",
+            "db_file_cpc5": "/media/arn/GODxSSD2/Traces/db_file_ssv_smt_30s_cpc5",
+            "file_mail_cpc5": "/media/arn/GODxSSD2/Traces/file_mail_ssv_smt_30s_cpc5",
+            "file_stream_cpc5": "/media/arn/GODxSSD2/Traces/file_stream_ssv_smt_30s_cpc5",
+            "file_web_cpc5": "/media/arn/GODxSSD2/Traces/file_web_ssv_smt_30s_cpc5"
+        }
+    }
+}

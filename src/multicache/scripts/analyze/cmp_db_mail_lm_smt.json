@@ -1,0 +1,29 @@
+{
+    "title": "Load miss - combined benchmark - db+mail",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "median",
+    "bars": [
+        "normal",
+        "db_mail_smt_30s",
+        "cc"
+    ],
+    "trace": {
+        "db": {
+            "filter": "db",
+            "folders": {
+                "normal": "/media/arn/GODxSSD2/Traces/db_lm_5s",
+                "db_mail_smt_30s": "/media/arn/GODxSSD2/Traces/db_mail_lm_smt_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_db_lm_5s"
+            }
+        },
+        "mail": {
+            "filter": "mail",
+            "folders": {
+                "normal": "/media/arn/GODxSSD2/Traces/mail_lm_5s",
+                "db_mail_smt_30s": "/media/arn/GODxSSD2/Traces/db_mail_lm_smt_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_mail_lm_5s"
+            }
+        }
+    }
+}

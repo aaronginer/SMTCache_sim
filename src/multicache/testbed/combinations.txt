@@ -1,0 +1,76 @@
+app
+db
+file
+mail
+stream
+web
+
+
+app db
+app file
+app mail
+app stream
+app web
+db file
+db mail
+db stream
+db web
+file mail
+file stream
+file web
+mail stream
+mail web
+stream web
+app db file
+app db mail
+app db stream
+app db web
+app file mail
+app file stream
+app file web
+app mail stream
+app mail web
+app stream web
+db file mail
+db file stream
+db file web
+db mail stream
+db mail web
+db stream web
+file mail stream
+file mail web
+file stream web
+mail stream web
+app db file mail
+app db file stream
+app db file web
+app db mail stream
+app db mail web
+app db stream web
+app file mail stream
+app file mail web
+app file stream web
+app mail stream web
+db file mail stream
+db file mail web
+db file stream web
+db mail stream web
+file mail stream web
+app db file mail stream
+app db file mail web
+app db file stream web
+app db mail stream web
+app file mail stream web
+db file mail stream web
+app db file mail stream web
+
+arithmetic mean
+geometric mean
+median
+fixere frequenz?
+
+kürzen auf bestimmte workloads
+
+isolcpus=domain,managed_irq,X-Y
+
+native_wrmsrl(MSR_IA32_FLUSH_CMD, L1D_FLUSH);

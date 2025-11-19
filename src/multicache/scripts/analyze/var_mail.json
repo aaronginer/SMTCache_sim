@@ -1,0 +1,9 @@
+{
+    "title": "Data variance plot",
+    "type": "var",
+    "statistic": "er",
+    "trace": {
+        "filter": "mail",
+        "folder": "/media/arn/GODxSSD2/Traces/mail_ssv_5s_cpc5"
+    }
+}

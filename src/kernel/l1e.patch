@@ -1,0 +1,438 @@
+diff --git a/include/trace/events/sched.h b/include/trace/events/sched.h
+index 1eca2305c..8c4f7b9be 100644
+--- a/include/trace/events/sched.h
++++ b/include/trace/events/sched.h
+@@ -216,6 +216,268 @@ static inline long __trace_sched_switch_state(bool preempt, struct task_struct *
+ }
+ #endif /* CREATE_TRACE_POINTS */
+ 
++/*
++* sched_switch_verbose
++* added tracer to catch detailed context switch information 
++*/
++TRACE_EVENT(ssv,
++	TP_PROTO(struct task_struct *prev,
++			struct task_struct *next),
++
++	TP_ARGS(prev, next),
++
++	TP_STRUCT__entry(
++		__field(int, lcore)
++		__field(bool, from)
++		__field(bool, to)
++		__field(int, prev_pid)
++		__field(int, next_pid)
++		__field(int, prev_tgid)
++		__field(int, next_tgid)
++		__array(char, prev_comm, TASK_COMM_LEN)
++		__array(char, next_comm, TASK_COMM_LEN)
++	),
++
++	TP_fast_assign(
++		__entry->lcore 	= task_cpu(next);
++		__entry->from	= (prev->mm) ? 1 : 0;
++		__entry->to		= (next->mm) ? 1 : 0;
++		__entry->prev_pid	= task_pid_nr(prev);
++		__entry->next_pid	= task_pid_nr(next);
++		__entry->prev_tgid	= task_tgid_nr(prev);
++		__entry->next_tgid	= task_tgid_nr(next);
++		memcpy(__entry->prev_comm, prev->comm, TASK_COMM_LEN);
++		memcpy(__entry->next_comm, next->comm, TASK_COMM_LEN);
++	),
++
++	TP_printk("%d,%d,%d,%d,%s,%d,%d,%d,%s",
++			__entry->lcore,
++			__entry->from,
++			__entry->prev_pid,
++			__entry->prev_tgid,
++			__entry->prev_comm,
++			__entry->to,
++			__entry->next_pid,
++			__entry->next_tgid,
++			__entry->next_comm
++	)
++);
++
++/*
++* l1e2: l1 performance counter events
++* 2 performance counters (0,1) 
++*/
++TRACE_EVENT(l1e2,
++	TP_PROTO(struct task_struct *task),
++
++	TP_ARGS(task),
++
++	TP_STRUCT__entry(
++		__field(int, lcore)
++		__field(int, tgid)
++		__field(int, pid)
++		__array(char, comm, TASK_COMM_LEN)
++		__field(u64, pmc0)
++		__field(u64, pmc1)
++	),
++
++	TP_fast_assign(
++		__entry->lcore 		= task_cpu(task);
++		__entry->tgid		= task_tgid_nr(task);
++		__entry->pid 		= task_pid_nr(task);
++		rdpmcl(0, __entry->pmc0);
++		rdpmcl(1, __entry->pmc1);
++		memcpy(__entry->comm, task->comm, TASK_COMM_LEN);
++	),
++
++	TP_printk("%d,%d,%d,%s,%llx,%llx",
++		__entry->lcore,
++		__entry->tgid,
++		__entry->pid,
++		__entry->comm,
++		__entry->pmc0,
++		__entry->pmc1
++	)
++);
++
++/*
++* l1e3: l1 performance counter events
++* 3 performance counters (0,1, 2) 
++*/
++TRACE_EVENT(l1e3,
++	TP_PROTO(struct task_struct *task),
++
++	TP_ARGS(task),
++
++	TP_STRUCT__entry(
++		__field(int, lcore)
++		__field(int, tgid)
++		__field(int, pid)
++		__array(char, comm, TASK_COMM_LEN)
++		__field(u64, pmc0)
++		__field(u64, pmc1)
++		__field(u64, pmc2)
++	),
++
++	TP_fast_assign(
++		__entry->lcore 		= task_cpu(task);
++		__entry->tgid		= task_tgid_nr(task);
++		__entry->pid 		= task_pid_nr(task);
++		rdpmcl(0, __entry->pmc0);
++		rdpmcl(1, __entry->pmc1);
++		rdpmcl(2, __entry->pmc2);
++		memcpy(__entry->comm, task->comm, TASK_COMM_LEN);
++	),
++
++	TP_printk("%d,%d,%d,%s,%llx,%llx,%llx",
++		__entry->lcore,
++		__entry->tgid,
++		__entry->pid,
++		__entry->comm,
++		__entry->pmc0,
++		__entry->pmc1,
++		__entry->pmc2
++	)
++);
++
++/*
++* l1e4: l1 performance counter events
++* 4 performance counters (0,1,2,3) 
++*/
++TRACE_EVENT(l1e4,
++	TP_PROTO(struct task_struct *task),
++
++	TP_ARGS(task),
++
++	TP_STRUCT__entry(
++		__field(int, lcore)
++		__field(int, tgid)
++		__field(int, pid)
++		__array(char, comm, TASK_COMM_LEN)
++		__field(u64, pmc0)
++		__field(u64, pmc1)
++		__field(u64, pmc2)
++		__field(u64, pmc3)
++	),
++
++	TP_fast_assign(
++		__entry->lcore 		= task_cpu(task);
++		__entry->tgid		= task_tgid_nr(task);
++		__entry->pid 		= task_pid_nr(task);
++		rdpmcl(0, __entry->pmc0);
++		rdpmcl(1, __entry->pmc1);
++		rdpmcl(2, __entry->pmc2);
++		rdpmcl(3, __entry->pmc3);
++		memcpy(__entry->comm, task->comm, TASK_COMM_LEN);
++	),
++
++	TP_printk("%d,%d,%d,%s,%llx,%llx,%llx,%llx",
++		__entry->lcore,
++		__entry->tgid,
++		__entry->pid,
++		__entry->comm,
++		__entry->pmc0,
++		__entry->pmc1,
++		__entry->pmc2,
++		__entry->pmc3
++	)
++);
++
++/*
++* l1e5: l1 performance counter events
++* 5 performance counters (0,1,2,3,4) 
++*/
++TRACE_EVENT(l1e5,
++	TP_PROTO(struct task_struct *task),
++
++	TP_ARGS(task),
++
++	TP_STRUCT__entry(
++		__field(int, lcore)
++		__field(int, tgid)
++		__field(int, pid)
++		__array(char, comm, TASK_COMM_LEN)
++		__field(u64, pmc0)
++		__field(u64, pmc1)
++		__field(u64, pmc2)
++		__field(u64, pmc3)
++		__field(u64, pmc4)
++	),
++
++	TP_fast_assign(
++		__entry->lcore 		= task_cpu(task);
++		__entry->tgid		= task_tgid_nr(task);
++		__entry->pid 		= task_pid_nr(task);
++		rdpmcl(0, __entry->pmc0);
++		rdpmcl(1, __entry->pmc1);
++		rdpmcl(2, __entry->pmc2);
++		rdpmcl(3, __entry->pmc3);
++		rdpmcl(4, __entry->pmc4);
++		memcpy(__entry->comm, task->comm, TASK_COMM_LEN);
++	),
++
++	TP_printk("%d,%d,%d,%s,%llx,%llx,%llx,%llx,%llx",
++		__entry->lcore,
++		__entry->tgid,
++		__entry->pid,
++		__entry->comm,
++		__entry->pmc0,
++		__entry->pmc1,
++		__entry->pmc2,
++		__entry->pmc3,
++		__entry->pmc4
++	)
++);
++
++/*
++* l1e6: l1 performance counter events
++* 6 performance counters (0,1,2,3,4,5) 
++*/
++TRACE_EVENT(l1e6,
++	TP_PROTO(struct task_struct *task),
++
++	TP_ARGS(task),
++
++	TP_STRUCT__entry(
++		__field(int, lcore)
++		__field(int, tgid)
++		__field(int, pid)
++		__array(char, comm, TASK_COMM_LEN)
++		__field(u64, pmc0)
++		__field(u64, pmc1)
++		__field(u64, pmc2)
++		__field(u64, pmc3)
++		__field(u64, pmc4)
++		__field(u64, pmc5)
++	),
++
++	TP_fast_assign(
++		__entry->lcore 		= task_cpu(task);
++		__entry->tgid		= task_tgid_nr(task);
++		__entry->pid 		= task_pid_nr(task);
++		rdpmcl(0, __entry->pmc0);
++		rdpmcl(1, __entry->pmc1);
++		rdpmcl(2, __entry->pmc2);
++		rdpmcl(3, __entry->pmc3);
++		rdpmcl(4, __entry->pmc4);
++		rdpmcl(5, __entry->pmc5);
++		memcpy(__entry->comm, task->comm, TASK_COMM_LEN);
++	),
++
++	TP_printk("%d,%d,%d,%s,%llx,%llx,%llx,%llx,%llx,%llx",
++		__entry->lcore,
++		__entry->tgid,
++		__entry->pid,
++		__entry->comm,
++		__entry->pmc0,
++		__entry->pmc1,
++		__entry->pmc2,
++		__entry->pmc3,
++		__entry->pmc4,
++		__entry->pmc5
++	)
++);
++
+ /*
+  * Tracepoint for task switches, performed by the scheduler:
+  */
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 4ca80df20..84b9d1a82 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -27,6 +27,12 @@
+ #include "pelt.h"
+ #include "smp.h"
+ 
++#include "../../arch/x86/include/asm/msr-index.h"
++#include "../../arch/x86/include/asm/paravirt.h"
++#include "../../arch/x86/include/asm/cpufeatures.h"
++#include "../../arch/x86/include/asm/cpufeature.h"
++#include "../../arch/x86/include/asm/msr.h"
++
+ /*
+  * Export tracepoints that act as a bare tracehook (ie: have no trace event
+  * associated with them) to allow external modules to probe them.
+@@ -4281,6 +4287,10 @@ asmlinkage __visible void schedule_tail(struct task_struct *prev)
+ 	calculate_sigpending();
+ }
+ 
++#define L1D_CACHE_SIZE 32*1024
++#define LINE_SIZE 64
++#define LINES 512
++
+ /*
+  * context_switch - switch to the new MM and the new thread's register state.
+  */
+@@ -4288,6 +4298,44 @@ static __always_inline struct rq *
+ context_switch(struct rq *rq, struct task_struct *prev,
+ 	       struct task_struct *next, struct rq_flags *rf)
+ {
++	// int i = 0;
++	// char* mem = NULL;
++
++	unsigned long evtsel0, evtsel1, evtsel2, evtsel3, evtsel4, evtsel5;
++	rdmsrl(0x186, evtsel0);
++	rdmsrl(0x187, evtsel1);
++	rdmsrl(0x188, evtsel2);
++	rdmsrl(0x189, evtsel3);
++	rdmsrl(0x18a, evtsel4);
++	rdmsrl(0x18b, evtsel5);
++
++	wrmsrl(0x186, 0);
++	wrmsrl(0x187, 0);
++	wrmsrl(0x188, 0);
++	wrmsrl(0x189, 0);
++	wrmsrl(0x18a, 0);
++	wrmsrl(0x18b, 0);
++
++	// mem = kmalloc(L1D_CACHE_SIZE, GFP_KERNEL);
++	// for (; i < LINES; i +=LINE_SIZE)
++	// {
++	// 	mem[i] = 1;
++	// }
++	// kfree(mem);
++
++	trace_l1e2(next);
++	trace_l1e3(next);
++	trace_l1e4(next);
++	trace_l1e5(next);
++	trace_l1e6(next);
++
++	wrmsrl(0x186, evtsel0);
++	wrmsrl(0x187, evtsel1);
++	wrmsrl(0x188, evtsel2);
++	wrmsrl(0x189, evtsel3);
++	wrmsrl(0x18a, evtsel4);
++	wrmsrl(0x18b, evtsel5);
++
+ 	prepare_task_switch(rq, prev, next);
+ 
+ 	/*
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index d23a09d3e..37c871089 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -4116,6 +4116,7 @@ static void print_lat_help_header(struct seq_file *m)
+ 
+ static void print_event_info(struct array_buffer *buf, struct seq_file *m)
+ {
++	/* DISABLED
+ 	unsigned long total;
+ 	unsigned long entries;
+ 
+@@ -4123,6 +4124,7 @@ static void print_event_info(struct array_buffer *buf, struct seq_file *m)
+ 	seq_printf(m, "# entries-in-buffer/entries-written: %lu/%lu   #P:%d\n",
+ 		   entries, total, num_online_cpus());
+ 	seq_puts(m, "#\n");
++	*/
+ }
+ 
+ static void print_func_help_header(struct array_buffer *buf, struct seq_file *m,
+@@ -4139,6 +4141,9 @@ static void print_func_help_header(struct array_buffer *buf, struct seq_file *m,
+ static void print_func_help_header_irq(struct array_buffer *buf, struct seq_file *m,
+ 				       unsigned int flags)
+ {
++	seq_printf(m, "# timestamp,core,from(kernel=0,user=1),prev_pid,prev_tgid,prev_comm,to(kernel=0,user=1),next_pid,next_tgid,next_comm\n");
++	seq_printf(m, "# ncores: %d\n", num_online_cpus());
++	/* DISABLED
+ 	bool tgid = flags & TRACE_ITER_RECORD_TGID;
+ 	const char *space = "            ";
+ 	int prec = tgid ? 12 : 2;
+@@ -4152,6 +4157,7 @@ static void print_func_help_header_irq(struct array_buffer *buf, struct seq_file
+ 	seq_printf(m, "#                            %.*s||| /     delay\n", prec, space);
+ 	seq_printf(m, "#           TASK-PID  %.*s CPU#  ||||   TIMESTAMP  FUNCTION\n", prec, "     TGID   ");
+ 	seq_printf(m, "#              | |    %.*s   |   ||||      |         |\n", prec, "       |    ");
++	*/
+ }
+ 
+ void
+diff --git a/kernel/trace/trace_output.c b/kernel/trace/trace_output.c
+index d0368a569..cc18f31d2 100644
+--- a/kernel/trace/trace_output.c
++++ b/kernel/trace/trace_output.c
+@@ -306,7 +306,7 @@ int trace_raw_output_prep(struct trace_iterator *iter,
+ 	}
+ 
+ 	trace_seq_init(p);
+-	trace_seq_printf(s, "%s: ", trace_event_name(event));
++	// trace_seq_printf(s, "%s: ", trace_event_name(event));
+ 
+ 	return trace_handle_return(s);
+ }
+@@ -327,7 +327,9 @@ static int trace_output_raw(struct trace_iterator *iter, char *name,
+ {
+ 	struct trace_seq *s = &iter->seq;
+ 
+-	trace_seq_printf(s, "%s: ", name);
++	// trace_seq_printf(s, "%s: ", name);
++	trace_seq_puts(s, "-");
++
+ 	trace_seq_vprintf(s, trace_event_format(iter, fmt), ap);
+ 
+ 	return trace_handle_return(s);
+@@ -597,7 +599,7 @@ static void trace_print_time(struct trace_seq *s, struct trace_iterator *iter,
+ 		t = ns2usecs(ts);
+ 		usec_rem = do_div(t, USEC_PER_SEC);
+ 		secs = (unsigned long)t;
+-		trace_seq_printf(s, " %5lu.%06lu", secs, usec_rem);
++		trace_seq_printf(s, " %5lu.%04lu", secs, usec_rem);
+ 	} else
+ 		trace_seq_printf(s, " %12llu", ts);
+ }
+@@ -611,7 +613,7 @@ int trace_print_context(struct trace_iterator *iter)
+ 
+ 	trace_find_cmdline(entry->pid, comm);
+ 
+-	trace_seq_printf(s, "%16s-%-7d ", comm, entry->pid);
++	/*trace_seq_printf(s, "%16s-%-7d ", comm, entry->pid);
+ 
+ 	if (tr->trace_flags & TRACE_ITER_RECORD_TGID) {
+ 		unsigned int tgid = trace_find_tgid(entry->pid);
+@@ -626,9 +628,9 @@ int trace_print_context(struct trace_iterator *iter)
+ 
+ 	if (tr->trace_flags & TRACE_ITER_IRQ_INFO)
+ 		trace_print_lat_fmt(s, entry);
+-
++	*/
+ 	trace_print_time(s, iter, iter->ts);
+-	trace_seq_puts(s, ": ");
++	trace_seq_puts(s, ",");
+ 
+ 	return !trace_seq_has_overflowed(s);
+ }

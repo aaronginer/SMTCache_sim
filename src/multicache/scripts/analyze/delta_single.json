@@ -1,0 +1,90 @@
+{
+    "central_tendency": "a_mean",
+    "type": "delta",
+    "servers": {
+        "app": {
+            "trace": {
+                "color": "blue",
+                "filter": "app",
+                "baseline_low": "/media/arn/GODxSSD2/Traces/app_lm_5s",
+                "baseline_high": "/media/arn/GODxSSD2/Traces/cc_app_lm_5s",
+                "benchmarks": {
+                    "A": {
+                        "l1e": "/media/arn/GODxSSD2/Traces/app_lm_5s",
+                        "ssv": "/media/arn/GODxSSD2/Traces/app_ssv_5s_cpc5"
+                    }
+                }
+            }
+        },
+        "db": {
+            "trace": {
+                "color": "orange",
+                "filter": "db",
+                "baseline_low": "/media/arn/GODxSSD2/Traces/db_lm_5s",
+                "baseline_high": "/media/arn/GODxSSD2/Traces/cc_db_lm_5s",
+                "benchmarks": {
+                    "D": {
+                        "l1e": "/media/arn/GODxSSD2/Traces/db_lm_5s",
+                        "ssv": "/media/arn/GODxSSD2/Traces/db_ssv_5s_cpc5"
+                    }
+                }
+            }
+        },
+        "file": {
+            "trace": {
+                "color": "green",
+                "filter": "file",
+                "baseline_low": "/media/arn/GODxSSD2/Traces/file_lm_5s",
+                "baseline_high": "/media/arn/GODxSSD2/Traces/cc_file_lm_5s",
+                "benchmarks": {
+                    "F": {
+                        "l1e": "/media/arn/GODxSSD2/Traces/file_lm_5s",
+                        "ssv": "/media/arn/GODxSSD2/Traces/file_ssv_5s_cpc5"
+                    }
+                }
+            }
+        },
+        "mail": {
+            "trace": {
+                "color": "red",
+                "filter": "mail",
+                "baseline_low": "/media/arn/GODxSSD2/Traces/mail_lm_5s",
+                "baseline_high": "/media/arn/GODxSSD2/Traces/cc_mail_lm_5s",
+                "benchmarks": {
+                    "M": {
+                        "l1e": "/media/arn/GODxSSD2/Traces/mail_lm_5s",
+                        "ssv": "/media/arn/GODxSSD2/Traces/mail_ssv_5s_cpc5"
+                    }
+                }
+            }
+        },
+        "stream": {
+            "trace": {
+                "color": "purple",
+                "filter": "stream",
+                "baseline_low": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+                "baseline_high": "/media/arn/GODxSSD2/Traces/cc_stream_lm_5s",
+                "benchmarks": {
+                    "S": {
+                        "l1e": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+                        "ssv": "/media/arn/GODxSSD2/Traces/stream_ssv_5s_cpc5"
+                    }
+                }
+            }
+        },
+        "web": {
+            "trace": {
+                "color": "cyan",
+                "filter": "web",
+                "baseline_low": "/media/arn/GODxSSD2/Traces/web_lm_5s",
+                "baseline_high": "/media/arn/GODxSSD2/Traces/cc_web_lm_5s",
+                "benchmarks": {
+                    "W": {
+                        "l1e": "/media/arn/GODxSSD2/Traces/web_lm_5s",
+                        "ssv": "/media/arn/GODxSSD2/Traces/web_ssv_5s_cpc5"
+                    }
+                }
+            }
+        }
+    }
+}

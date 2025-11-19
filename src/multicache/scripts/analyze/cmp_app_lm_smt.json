@@ -1,0 +1,29 @@
+{
+    "title": "Stats for APP for benchmarks including app",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "median",
+    "bars": [
+        "app",
+        "app_db_smt_30s",
+        "app_file_smt_30s",
+        "app_mail_smt_30s",
+        "app_stream_smt_30s",
+        "app_web_smt_30s",
+        "cc_app"
+    ],
+    "trace": {
+        "app": {
+            "filter": "app",
+            "folders": {
+                "app": "/media/arn/GODxSSD2/Traces/app_lm_5s",
+                "app_db_smt_30s": "/media/arn/GODxSSD2/Traces/app_db_lm_smt_30s",
+                "app_file_smt_30s": "/media/arn/GODxSSD2/Traces/app_file_lm_smt_30s",
+                "app_mail_smt_30s": "/media/arn/GODxSSD2/Traces/app_mail_lm_smt_30s",
+                "app_stream_smt_30s": "/media/arn/GODxSSD2/Traces/app_stream_lm_smt_30s",
+                "app_web_smt_30s": "/media/arn/GODxSSD2/Traces/app_web_lm_smt_30s",
+                "cc_app": "/media/arn/GODxSSD2/Traces/cc_app_lm_5s"
+            }
+        }
+    }
+}

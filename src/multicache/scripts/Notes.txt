@@ -1,0 +1,32 @@
+Samba File-Server:
+
+- neuer Prozess pro Connection
+
+-> schauen, ob samba eine flag hat um das zu disablen
+
+Apache2 Server:
+
+- 2 Hauptprozesse, die Arbeit aufteilen
+
+ffserver:
+
+- 1 Prozess, der keine threads für connections erstellt
+
+-> wie wird der normalerweise skaliert / verwendet
+
+
+
+
+
+
+
+rdmsr
+wrmsr
+https://stackoverflow.com/questions/49179295/how-to-read-pmc-performance-monitoring-counter-of-intel-processor
+
+performance counter beim task switch auslesen
+
+experimente designen, die design unterstützen / eventuell experimente, bei
+
+
+isolcpus https://www.linuxtopia.org/online_books/linux_kernel/kernel_configuration/re46.html

@@ -1,0 +1,5 @@
+[sambashare]
+    comment = Samba on Ubuntu
+    path = /home/#USER#/sambashare
+    read only = no
+    browsable = yes

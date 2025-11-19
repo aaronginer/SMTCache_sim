@@ -1,0 +1,27 @@
+{
+    "title": "Eviction rate for benchmarks including db",
+    "type": "compare",
+    "statistic": "er",
+    "central_tendency": "a_mean",
+    "bars": [
+        "db_cpc5",
+        "app_db_cpc5",
+        "db_file_cpc5",
+        "db_mail_cpc5",
+        "db_stream_cpc5",
+        "db_web_cpc5"
+    ],
+    "trace": {
+        "app": {
+            "filter": "db",
+            "folders": {
+                "db_cpc5": "/media/arn/GODxSSD2/Traces/db_ssv_5s_cpc5",
+                "app_db_cpc5": "/media/arn/GODxSSD2/Traces/app_db_ssv_smt_30s_cpc5",
+                "db_file_cpc5": "/media/arn/GODxSSD2/Traces/db_file_ssv_smt_30s_cpc5",
+                "db_mail_cpc5": "/media/arn/GODxSSD2/Traces/db_mail_ssv_smt_30s_cpc5",
+                "db_stream_cpc5": "/media/arn/GODxSSD2/Traces/db_stream_ssv_smt_30s_cpc5",
+                "db_web_cpc5": "/media/arn/GODxSSD2/Traces/db_web_ssv_smt_30s_cpc5"
+            }
+        }
+    }
+}

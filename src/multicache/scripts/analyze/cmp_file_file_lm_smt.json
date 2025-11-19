@@ -1,0 +1,21 @@
+{
+    "title": "Load miss - combined benchmark - file+file",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "median",
+    "bars": [
+        "normal",
+        "file_file_smt_30s",
+        "cc"
+    ],
+    "trace": {
+        "file": {
+            "filter": "file",
+            "folders": {
+                "normal": "/media/arn/GODxSSD2/Traces/file_lm_5s",
+                "file_file_smt_30s": "/media/arn/GODxSSD2/Traces/file_file_lm_smt_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_file_lm_5s"
+            }
+        }
+    }
+}

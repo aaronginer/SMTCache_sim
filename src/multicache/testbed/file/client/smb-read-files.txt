@@ -1,0 +1,59 @@
+# OPEN   
+# Flags are the combination of these flags, ored together
+#     0x01    O_RDONLY
+#     0x02    O_WRONLY
+#     0x04    O_RDWR
+#
+#     0x08    O_CREAT create the file if it does nto exist
+#     0x10    O_EXCL  fail if the file already exists
+#     0x20    O_TRUNC if the file exists, truncate it
+#     0x40    O_APPEND open in append mode only
+OPEN "/file0" 0x0c SUCCESS
+WRITE "/file0" 0 32768 SUCCESS
+WRITE "/file0" 32768 32768 SUCCESS
+CLOSE "/file0" SUCCESS
+#
+OPEN "/file1" 0x0c SUCCESS
+WRITE "/file1" 0 32768 SUCCESS
+WRITE "/file1" 32768 32768 SUCCESS
+CLOSE "/file1" SUCCESS
+#
+OPEN "/file2" 0x0c SUCCESS
+WRITE "/file2" 0 32768 SUCCESS
+WRITE "/file2" 32768 32768 SUCCESS
+CLOSE "/file2" SUCCESS
+#
+OPEN "/file3" 0x0c SUCCESS
+WRITE "/file3" 0 32768 SUCCESS
+WRITE "/file3" 32768 32768 SUCCESS
+CLOSE "/file3" SUCCESS
+#
+OPEN "/file4" 0x0c SUCCESS
+WRITE "/file4" 0 32768 SUCCESS
+WRITE "/file4" 32768 32768 SUCCESS
+CLOSE "/file4" SUCCESS
+#
+OPEN "/file0" 0x01 SUCCESS
+READ "/file0" 0 32768 SUCCESS
+READ "/file0" 32768 32768 SUCCESS
+CLOSE "/file0" SUCCESS
+#
+OPEN "/file1" 0x01 SUCCESS
+READ "/file1" 0 32768 SUCCESS
+READ "/file1" 32768 32768 SUCCESS
+CLOSE "/file1" SUCCESS
+#
+OPEN "/file2" 0x01 SUCCESS
+READ "/file2" 0 32768 SUCCESS
+READ "/file2" 32768 32768 SUCCESS
+CLOSE "/file2" SUCCESS
+#
+OPEN "/file3" 0x01 SUCCESS
+READ "/file3" 0 32768 SUCCESS
+READ "/file3" 32768 32768 SUCCESS
+CLOSE "/file3" SUCCESS
+#
+OPEN "/file4" 0x01 SUCCESS
+READ "/file4" 0 32768 SUCCESS
+READ "/file4" 32768 32768 SUCCESS
+CLOSE "/file4" SUCCESS

@@ -1,0 +1,29 @@
+{
+    "title": "Eviction rate for benchmarks including file",
+    "type": "compare",
+    "statistic": "er",
+    "central_tendency": "a_mean",
+    "bars": [
+        "file",
+        "file_file",
+        "app_file",
+        "db_file",
+        "file_mail",
+        "file_stream",
+        "file_web"
+    ],
+    "trace": {
+        "file": {
+            "filter": "file",
+            "folders": {
+                "file": "/media/arn/GODxSSD2/Traces/file_ssv_30s_cpc5",
+                "file_file": "/media/arn/GODxSSD2/Traces/file_file_ssv_smt_30s_cpc5",
+                "app_file": "/media/arn/GODxSSD2/Traces/app_file_ssv_smt_30s_cpc5",
+                "db_file": "/media/arn/GODxSSD2/Traces/db_file_ssv_smt_30s_cpc5",
+                "file_mail": "/media/arn/GODxSSD2/Traces/file_mail_ssv_smt_30s_cpc5",
+                "file_stream": "/media/arn/GODxSSD2/Traces/file_stream_ssv_smt_30s_cpc5",
+                "file_web": "/media/arn/GODxSSD2/Traces/file_web_ssv_smt_30s_cpc5"
+            }
+        }
+    }
+}

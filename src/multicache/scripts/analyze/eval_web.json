@@ -1,0 +1,60 @@
+{
+    "title": "eval_web",
+    "type": "eval",
+    "central_tendency": "a_mean",
+    "trace": {
+        "filter": "web",
+        "baseline_low": "/media/arn/GODxSSD2/Traces/web_lm_5s",
+        "baseline_high": "/media/arn/GODxSSD2/Traces/cc_web_lm_5s",
+        "benchmarks": {
+            "W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/web_lm_5s",
+                "ssv": "/media/arn/GODxSSD2/Traces/web_ssv_5s_cpc3"
+            },
+            "D_W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/db_web_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/db_web_ssv_30s_cpc3"
+            },
+            "F_W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/file_web_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/file_web_ssv_30s_cpc3"
+            },
+            "S_W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/stream_web_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/stream_web_ssv_30s_cpc3"
+            },
+            "A_D_W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/app_db_web_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/app_db_web_ssv_30s_cpc3"
+            },
+            "D_F_W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/db_file_web_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/db_file_web_ssv_30s_cpc3"
+            },
+            "D_S_W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/db_stream_web_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/db_stream_web_ssv_30s_cpc3"
+            },
+            "A_W_SMT": {
+                "l1e": "/media/arn/GODxSSD2/Traces/app_web_lm_smt_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/app_web_ssv_smt_30s_cpc3"
+            },
+            "D_W_SMT": {
+                "l1e": "/media/arn/GODxSSD2/Traces/db_web_lm_smt_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/db_web_ssv_smt_30s_cpc3"
+            },
+            "F_W_SMT": {
+                "l1e": "/media/arn/GODxSSD2/Traces/file_web_lm_smt_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/file_web_ssv_smt_30s_cpc3"
+            },
+            "M_W_SMT": {
+                "l1e": "/media/arn/GODxSSD2/Traces/mail_web_lm_smt_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/mail_web_ssv_smt_30s_cpc3"
+            },
+            "S_W_SMT": {
+                "l1e": "/media/arn/GODxSSD2/Traces/stream_web_lm_smt_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/stream_web_ssv_smt_30s_cpc3"
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "title": "Gaussian plots normal vs cc kernel",
+    "type": "dist",
+    "statistic": "lmr",
+    "trace": {
+        "filter": "stream",
+        "folders": {
+            "stream": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+            "cc_stream": "/media/arn/GODxSSD2/Traces/cc_stream_lm_5s"
+        }
+    }
+}

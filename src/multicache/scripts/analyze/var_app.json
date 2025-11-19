@@ -1,0 +1,10 @@
+{
+    "title": "Observation Fluctuations - App Server - STD=",
+    "type": "var",
+    "statistic": "lmr",
+    "outliers": "no",
+    "trace": {
+        "filter": "app",
+        "folder": "/media/arn/GODxSSD2/Traces/app_lm_5s"
+    }
+}

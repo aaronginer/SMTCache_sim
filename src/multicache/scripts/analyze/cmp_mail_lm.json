@@ -1,0 +1,25 @@
+{
+    "title": "Load miss for benchmarks including mail",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "median",
+    "bars": [
+        "mail",
+        "app_mail_30s",
+        "db_mail_30s",
+        "file_mail_30s",
+        "cc_mail"
+    ],
+    "trace": {
+        "mail": {
+            "filter": "mail",
+            "folders": {
+                "mail": "/media/arn/GODxSSD2/Traces/mail_lm_5s",
+                "app_mail_30s": "/media/arn/GODxSSD2/Traces/app_mail_lm_30s",
+                "db_mail_30s": "/media/arn/GODxSSD2/Traces/db_mail_lm_30s",
+                "file_mail_30s": "/media/arn/GODxSSD2/Traces/file_mail_lm_30s",
+                "cc_mail": "/media/arn/GODxSSD2/Traces/cc_mail_lm_5s"
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "title": "Eviction rate for benchmarks including app",
+    "type": "compare",
+    "statistic": "er",
+    "central_tendency": "a_mean",
+    "bars": [
+        "cpc3",
+        "cpc4",
+        "cpc5"
+    ],
+    "trace": {
+        "app": {
+            "filter": "app",
+            "folders": {
+                "cpc3": "/media/arn/GODxSSD2/Traces/app_ssv_5s_cpc3",
+                "cpc4": "/media/arn/GODxSSD2/Traces/app_ssv_5s_cpc4",
+                "cpc5": "/media/arn/GODxSSD2/Traces/app_ssv_5s_cpc5"
+            }
+        },
+        "db": {
+            "filter": "db",
+            "folders": {
+                "cpc3": "/media/arn/GODxSSD2/Traces/db_ssv_5s_cpc3",
+                "cpc4": "/media/arn/GODxSSD2/Traces/db_ssv_5s_cpc4",
+                "cpc5": "/media/arn/GODxSSD2/Traces/db_ssv_5s_cpc5"
+            }
+        },
+        "file": {
+            "filter": "file",
+            "folders": {
+                "cpc3": "/media/arn/GODxSSD2/Traces/file_ssv_5s_cpc3",
+                "cpc4": "/media/arn/GODxSSD2/Traces/file_ssv_5s_cpc4",
+                "cpc5": "/media/arn/GODxSSD2/Traces/file_ssv_5s_cpc5"
+            }
+        },
+        "mail": {
+            "filter": "mail",
+            "folders": {
+                "cpc3": "/media/arn/GODxSSD2/Traces/mail_ssv_5s_cpc3",
+                "cpc4": "/media/arn/GODxSSD2/Traces/mail_ssv_5s_cpc4",
+                "cpc5": "/media/arn/GODxSSD2/Traces/mail_ssv_5s_cpc5"
+            }
+        },
+        "stream": {
+            "filter": "stream",
+            "folders": {
+                "cpc3": "/media/arn/GODxSSD2/Traces/stream_ssv_5s_cpc3",
+                "cpc4": "/media/arn/GODxSSD2/Traces/stream_ssv_5s_cpc4",
+                "cpc5": "/media/arn/GODxSSD2/Traces/stream_ssv_5s_cpc5"
+            }
+        },
+        "web": {
+            "filter": "web",
+            "folders": {
+                "cpc3": "/media/arn/GODxSSD2/Traces/web_ssv_5s_cpc3",
+                "cpc4": "/media/arn/GODxSSD2/Traces/web_ssv_5s_cpc4",
+                "cpc5": "/media/arn/GODxSSD2/Traces/web_ssv_5s_cpc5"
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "title": "Load miss - combined benchmark - db+stream",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "median",
+    "bars": [
+        "normal",
+        "db_stream_smt_30s",
+        "cc"
+    ],
+    "trace": {
+        "db": {
+            "filter": "db",
+            "folders": {
+                "normal": "/media/arn/GODxSSD2/Traces/db_lm_5s",
+                "db_stream_smt_30s": "/media/arn/GODxSSD2/Traces/db_stream_lm_smt_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_db_lm_5s"
+            }
+        },
+        "stream": {
+            "filter": "stream",
+            "folders": {
+                "normal": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+                "db_stream_smt_30s": "/media/arn/GODxSSD2/Traces/db_stream_lm_smt_30s",
+                "cc": "/media/arn/GODxSSD2/Traces/cc_stream_lm_5s"
+            }
+        }
+    }
+}

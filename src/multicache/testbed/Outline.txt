@@ -1,0 +1,24 @@
+Basic Workloads:
+
+    1) Database Server (multiple instances at difference ports?)
+        Oracle, MySQL
+        
+    2) Web Server 
+
+    3) Mail Server
+
+    4) File Server
+
+    5) Streaming Server
+
+    6) Application Server
+    
+Combined workloads:    
+
+    1) Combined E-Commerce workload (Web server + database)
+    
+    2) More basic workloads? (database + web + file + mail)
+    
+- Add L1 data cache miss performance counter to kernel trace
+
+- How are real large scale systems implemented

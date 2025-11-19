@@ -1,0 +1,12 @@
+{
+    "title": "User/Kernel instructions per context switch - app vs app+web",
+    "type": "hist",
+    "statistic": "ips",
+    "trace": {
+        "filter": "app",
+        "folders": {
+            "app": "/media/arn/GODxSSD2/Traces/app_ia_30s",
+            "smt_app_web": "/media/arn/GODxSSD2/Traces/app_web_ia_smt_30s"
+        }
+    }
+}

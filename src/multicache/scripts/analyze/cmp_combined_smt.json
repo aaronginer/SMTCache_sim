@@ -1,0 +1,109 @@
+{
+    "title": "",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "g_mean",
+    "bars": [
+        "Normal",
+        "SMT",
+        "CC Normal"
+    ],
+    "trace": {
+        "app-app_db": {
+            "filter": "app",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/app_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/app_db_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_app_lm_5s"
+            }
+        },
+        "db-app_db": {
+            "filter": "db",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/db_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/app_db_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_db_lm_5s"
+            }
+        },
+        "app-app_file": {
+            "filter": "app",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/app_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/app_file_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_app_lm_5s"
+            }
+        },
+        "file-app_file": {
+            "filter": "file",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/file_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/app_file_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_file_lm_5s"
+            }
+        },
+        "db-db_mail": {
+            "filter": "db",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/db_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/db_mail_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_db_lm_5s"
+            }
+        },
+        "mail-db_mail": {
+            "filter": "mail",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/mail_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/db_mail_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_mail_lm_5s"
+            }
+        },
+        "db-db_web": {
+            "filter": "db",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/db_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/db_web_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_db_lm_5s"
+            }
+        },
+        "web-db_web": {
+            "filter": "web",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/web_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/db_web_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_web_lm_5s"
+            }
+        },
+        "file-file_web": {
+            "filter": "file",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/file_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/file_web_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_file_lm_5s"
+            }
+        },
+        "web-file_web": {
+            "filter": "web",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/web_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/file_web_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_web_lm_5s"
+            }
+        },
+        "stream-stream_web": {
+            "filter": "stream",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/stream_web_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_stream_lm_5s"
+            }
+        },
+        "web-stream_web": {
+            "filter": "web",
+            "folders": {
+                "Normal": "/media/arn/GODxSSD2/Traces/web_lm_5s",
+                "SMT": "/media/arn/GODxSSD2/Traces/stream_web_lm_smt_30s",
+                "CC Normal": "/media/arn/GODxSSD2/Traces/cc_web_lm_5s"
+            }
+        }
+    }
+}

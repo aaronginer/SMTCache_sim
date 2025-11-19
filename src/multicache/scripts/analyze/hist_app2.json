@@ -1,0 +1,12 @@
+{
+    "title": "",
+    "type": "hist",
+    "statistic": "lmr",
+    "trace": {
+        "filter": "app",
+        "folders": {
+            "app": "/media/arn/GODxSSD2/Traces/app_lm_5s",
+            "app_file": "/media/arn/GODxSSD2/Traces/app_file_lm_30s"
+        }
+    }
+}

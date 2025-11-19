@@ -1,0 +1,9 @@
+{
+    "title": "Data variance plot",
+    "type": "var",
+    "statistic": "lmr",
+    "trace": {
+        "filter": "web",
+        "folder": "/media/arn/GODxSSD2/Traces/stream_web_lm_smt_30s"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "title": "Stats for APP for benchmarks including app",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "a_mean",
+    "bars": [
+        "app",
+        "app_web",
+        "cc_app",
+        "cc_app_web"
+    ],
+    "trace": {
+        "app": {
+            "filter": "app",
+            "folders": {
+                "app": "/media/arn/GODxSSD2/Traces/konly_app_lm_30s",
+                "app_web": "/media/arn/GODxSSD2/Traces/konly_app_web_lm_30s",
+                "cc_app": "/media/arn/GODxSSD2/Traces/cc_konly_app_lm_30s",
+                "cc_app_web": "/media/arn/GODxSSD2/Traces/cc_konly_app_web_lm_30s"
+            }
+        }
+    }
+}

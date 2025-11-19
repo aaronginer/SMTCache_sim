@@ -1,0 +1,47 @@
+1) sudo -i 
+2) echo 1000000 >> /sys/kernel/debug/tracing/buffer_size_kb
+3) echo ssv >> /sys/kernel/debug/tracing/set_event
+4) echo '!ssv' >> /sys/kernel/debug/tracing/set_event
+5) cp /sys/kernel/debug/trace .
+
+clear buffer:
+echo "" > /sys/kernel/debug/trace
+
+(vm username -> sysadmin)
+ 
+
+##### perf counter event of interest #####
+l1d.replacement
+###########################################
+
+#### perf install on custom kernel #### (does not support important events) X
+apt-get install linux-tools-common linux-tools-generic linux-tools-`uname -r`
+
+
+build from source -> clone linux repo
+
+sudo apt install flex bison libelf-dev systemtap-sdt-dev libaudit-dev libslang2-dev libperl-dev libdw-dev
+
+
+cd tools/perf
+make
+
+sudo cp perf /usr/bin
+
+sudo perf stat -e l1d.replacement --per-core
+####################
+
+#### dependency problem solution ######
+apt-get install dialog linux-tools-common linux-tools-generic linux-tools-`uname -r`
+apt --fix-broken -o Dpkg::Options::="--force-overwrite" install
+sudo apt-get install linux-tools-`uname -r`
+################################
+
+##### COPY files from VM to host #####
+network type -> nat
+port forwarding -> name: SSH, host port 2022, guest port 22
+
+connect from windows powershell: 
+ssh [name]@localhost -p 2022
+scp -P 2022 [name]@localhost:/PATH/TO/FILE /FILE/DEST
+###################

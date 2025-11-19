@@ -1,0 +1,163 @@
+diff --git a/include/trace/events/sched.h b/include/trace/events/sched.h
+index 1eca2305c..2583f8ed6 100644
+--- a/include/trace/events/sched.h
++++ b/include/trace/events/sched.h
+@@ -216,6 +216,53 @@ static inline long __trace_sched_switch_state(bool preempt, struct task_struct *
+ }
+ #endif /* CREATE_TRACE_POINTS */
+ 
++/*
++* sched_switch_verbose
++* added tracer to catch detailed context switch information 
++*/
++TRACE_EVENT(ssv,
++	    TP_PROTO(struct task_struct *prev,
++		     struct task_struct *next),
++
++	    TP_ARGS(prev, next),
++
++	    TP_STRUCT__entry(
++		    __field(int, lcore)
++		    __field(bool, from)
++		    __field(bool, to)
++		    __field(int, prev_pid)
++		    __field(int, next_pid)
++		    __field(int, prev_tgid)
++		    __field(int, next_tgid)
++		    __array(char, prev_comm, TASK_COMM_LEN)
++		    __array(char, next_comm, TASK_COMM_LEN)
++	    ),
++
++	    TP_fast_assign(
++		    __entry->lcore 	= task_cpu(next);
++		    __entry->from	= (prev->mm) ? 1 : 0;
++		    __entry->to		= (next->mm) ? 1 : 0;
++		    __entry->prev_pid	= task_pid_nr(prev);
++		    __entry->next_pid	= task_pid_nr(next);
++		    __entry->prev_tgid	= task_tgid_nr(prev);
++		    __entry->next_tgid	= task_tgid_nr(next);
++		    memcpy(__entry->prev_comm, prev->comm, TASK_COMM_LEN);
++		    memcpy(__entry->next_comm, next->comm, TASK_COMM_LEN);
++	    ),
++
++	    TP_printk("%d,%d,%d,%d,%s,%d,%d,%d,%s",
++		      __entry->lcore,
++		      __entry->from,
++		      __entry->prev_pid,
++		      __entry->prev_tgid,
++		      __entry->prev_comm,
++		      __entry->to,
++		      __entry->next_pid,
++		      __entry->next_tgid,
++		      __entry->next_comm
++	    )
++);
++
+ /*
+  * Tracepoint for task switches, performed by the scheduler:
+  */
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 4ca80df20..2d16b8b4a 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -4288,6 +4288,8 @@ static __always_inline struct rq *
+ context_switch(struct rq *rq, struct task_struct *prev,
+ 	       struct task_struct *next, struct rq_flags *rf)
+ {
++	trace_ssv(prev, next);
++
+ 	prepare_task_switch(rq, prev, next);
+ 
+ 	/*
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index d23a09d3e..37c871089 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -4116,6 +4116,7 @@ static void print_lat_help_header(struct seq_file *m)
+ 
+ static void print_event_info(struct array_buffer *buf, struct seq_file *m)
+ {
++	/* DISABLED
+ 	unsigned long total;
+ 	unsigned long entries;
+ 
+@@ -4123,6 +4124,7 @@ static void print_event_info(struct array_buffer *buf, struct seq_file *m)
+ 	seq_printf(m, "# entries-in-buffer/entries-written: %lu/%lu   #P:%d\n",
+ 		   entries, total, num_online_cpus());
+ 	seq_puts(m, "#\n");
++	*/
+ }
+ 
+ static void print_func_help_header(struct array_buffer *buf, struct seq_file *m,
+@@ -4139,6 +4141,9 @@ static void print_func_help_header(struct array_buffer *buf, struct seq_file *m,
+ static void print_func_help_header_irq(struct array_buffer *buf, struct seq_file *m,
+ 				       unsigned int flags)
+ {
++	seq_printf(m, "# timestamp,core,from(kernel=0,user=1),prev_pid,prev_tgid,prev_comm,to(kernel=0,user=1),next_pid,next_tgid,next_comm\n");
++	seq_printf(m, "# ncores: %d\n", num_online_cpus());
++	/* DISABLED
+ 	bool tgid = flags & TRACE_ITER_RECORD_TGID;
+ 	const char *space = "            ";
+ 	int prec = tgid ? 12 : 2;
+@@ -4152,6 +4157,7 @@ static void print_func_help_header_irq(struct array_buffer *buf, struct seq_file
+ 	seq_printf(m, "#                            %.*s||| /     delay\n", prec, space);
+ 	seq_printf(m, "#           TASK-PID  %.*s CPU#  ||||   TIMESTAMP  FUNCTION\n", prec, "     TGID   ");
+ 	seq_printf(m, "#              | |    %.*s   |   ||||      |         |\n", prec, "       |    ");
++	*/
+ }
+ 
+ void
+diff --git a/kernel/trace/trace_output.c b/kernel/trace/trace_output.c
+index d0368a569..cc18f31d2 100644
+--- a/kernel/trace/trace_output.c
++++ b/kernel/trace/trace_output.c
+@@ -306,7 +306,7 @@ int trace_raw_output_prep(struct trace_iterator *iter,
+ 	}
+ 
+ 	trace_seq_init(p);
+-	trace_seq_printf(s, "%s: ", trace_event_name(event));
++	// trace_seq_printf(s, "%s: ", trace_event_name(event));
+ 
+ 	return trace_handle_return(s);
+ }
+@@ -327,7 +327,9 @@ static int trace_output_raw(struct trace_iterator *iter, char *name,
+ {
+ 	struct trace_seq *s = &iter->seq;
+ 
+-	trace_seq_printf(s, "%s: ", name);
++	// trace_seq_printf(s, "%s: ", name);
++	trace_seq_puts(s, "-");
++
+ 	trace_seq_vprintf(s, trace_event_format(iter, fmt), ap);
+ 
+ 	return trace_handle_return(s);
+@@ -597,7 +599,7 @@ static void trace_print_time(struct trace_seq *s, struct trace_iterator *iter,
+ 		t = ns2usecs(ts);
+ 		usec_rem = do_div(t, USEC_PER_SEC);
+ 		secs = (unsigned long)t;
+-		trace_seq_printf(s, " %5lu.%06lu", secs, usec_rem);
++		trace_seq_printf(s, " %5lu.%04lu", secs, usec_rem);
+ 	} else
+ 		trace_seq_printf(s, " %12llu", ts);
+ }
+@@ -611,7 +613,7 @@ int trace_print_context(struct trace_iterator *iter)
+ 
+ 	trace_find_cmdline(entry->pid, comm);
+ 
+-	trace_seq_printf(s, "%16s-%-7d ", comm, entry->pid);
++	/*trace_seq_printf(s, "%16s-%-7d ", comm, entry->pid);
+ 
+ 	if (tr->trace_flags & TRACE_ITER_RECORD_TGID) {
+ 		unsigned int tgid = trace_find_tgid(entry->pid);
+@@ -626,9 +628,9 @@ int trace_print_context(struct trace_iterator *iter)
+ 
+ 	if (tr->trace_flags & TRACE_ITER_IRQ_INFO)
+ 		trace_print_lat_fmt(s, entry);
+-
++	*/
+ 	trace_print_time(s, iter, iter->ts);
+-	trace_seq_puts(s, ": ");
++	trace_seq_puts(s, ",");
+ 
+ 	return !trace_seq_has_overflowed(s);
+ }

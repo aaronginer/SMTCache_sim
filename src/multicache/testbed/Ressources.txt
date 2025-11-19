@@ -1,0 +1,28 @@
+Cloud Server Benchmarks for Performance Evaluation of New Hardware Architecture:
+    https://arxiv.org/pdf/1603.01352.pdf
+    
+Performance Evaluation of Distributed Web Server Architectures under E-Commerce Workloads
+    https://www.ele.uri.edu/Research/hpcl/DRALIC/JPDC.pdf
+    
+Virt-LM
+    https://dl.acm.org/doi/pdf/10.1145/1958746.1958790
+
+PALMScloud
+    https://github.com/tianweiz07/Benchmarks/tree/master/PALMScloud/
+
+
+
+
+Article on pinning Linux services to specific cores
+    https://www.golinuxhub.com/2018/02/how-to-assign-service-to-specific-core/
+
+StackOverflow and Article on Isolating CPUs:
+    https://askubuntu.com/questions/19486/how-do-i-add-a-kernel-boot-parameter
+    https://www.suse.com/support/kb/doc/?id=000017747
+    
+Flush L1D cache: search: "MSR_IA32_FLUSH_CMD"
+	https://dl.acm.org/doi/pdf/10.1145/3319535.3354252
+	https://elixir.bootlin.com/linux/latest/source/arch/x86/kvm/vmx/vmx.c#L6328
+	
+L1D flushing?
+	https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/l1d_flush.html

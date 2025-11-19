@@ -1,0 +1,20 @@
+{
+    "title": "eval_app",
+    "type": "eval",
+    "central_tendency": "a_mean",
+    "trace": {
+        "filter": "app",
+        "baseline_low": "/media/arn/GODxSSD2/Traces/app_file_lm_30s",
+        "baseline_high": "/media/arn/GODxSSD2/Traces/cc_app_file_lm_30s",
+        "benchmarks": {
+            "A_F": {
+                "l1e": "/media/arn/GODxSSD2/Traces/app_file_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/app_file_ssv_30s_cpc5"
+            },
+            "A_D_W": {
+                "l1e": "/media/arn/GODxSSD2/Traces/app_db_web_lm_30s",
+                "ssv": "/media/arn/GODxSSD2/Traces/app_db_web_ssv_30s_cpc5"
+            }
+        }
+    }
+}

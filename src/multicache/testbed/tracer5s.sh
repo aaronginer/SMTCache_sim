@@ -1,0 +1,92 @@
+#!/bin/bash
+
+./pmc_setup.sh
+
+go () {
+  echo "Starting benchmark of $2"
+  path=$1
+  name=$2
+
+  i=0
+  max_loops=100
+
+  while [ $i -lt $max_loops ]
+  do
+    ./servers.sh stopall
+    ./servers.sh start $3 $4 $5 $6 $7 $8
+
+    sleep 10
+
+    taskset -c 1,2 ./runBenchmarks.sh 127.0.0.1 40s $3 $4 $5 $6 $7 $8 &
+
+    sleep 20
+
+    trace.sh l1e2 1000000 8 5s ${path}${name}_lm_5s_${i}.b
+
+    wait
+
+    ((i++))
+  done
+
+  ./servers.sh stopall
+}
+
+go /media/arn/GODxSSD2/Traces/ app_db app db
+go /media/arn/GODxSSD2/Traces/ app_file app file
+go /media/arn/GODxSSD2/Traces/ app_mail app mail
+go /media/arn/GODxSSD2/Traces/ app_stream app stream
+go /media/arn/GODxSSD2/Traces/ app_web app web
+go /media/arn/GODxSSD2/Traces/ db_file db file
+go /media/arn/GODxSSD2/Traces/ db_mail db mail
+go /media/arn/GODxSSD2/Traces/ db_stream db stream
+go /media/arn/GODxSSD2/Traces/ db_web db web
+go /media/arn/GODxSSD2/Traces/ file_mail file mail
+go /media/arn/GODxSSD2/Traces/ file_stream file stream
+go /media/arn/GODxSSD2/Traces/ file_web file web
+go /media/arn/GODxSSD2/Traces/ mail_stream mail stream
+go /media/arn/GODxSSD2/Traces/ mail_web mail web
+go /media/arn/GODxSSD2/Traces/ stream_web stream web
+go /media/arn/GODxSSD2/Traces/ app_db_file app db file
+go /media/arn/GODxSSD2/Traces/ app_db_mail app db mail
+go /media/arn/GODxSSD2/Traces/ app_db_stream app db stream
+go /media/arn/GODxSSD2/Traces/ app_db_web app db web
+go /media/arn/GODxSSD2/Traces/ app_file_mail app file mail
+go /media/arn/GODxSSD2/Traces/ app_file_stream app file stream
+go /media/arn/GODxSSD2/Traces/ app_file_web app file web
+go /media/arn/GODxSSD2/Traces/ app_mail_stream app mail stream
+go /media/arn/GODxSSD2/Traces/ app_mail_web app mail web
+go /media/arn/GODxSSD2/Traces/ app_stream_web app stream web
+go /media/arn/GODxSSD2/Traces/ db_file_mail db file mail
+go /media/arn/GODxSSD2/Traces/ db_file_stream db file stream
+go /media/arn/GODxSSD2/Traces/ db_file_web db file web
+go /media/arn/GODxSSD2/Traces/ db_mail_stream db mail stream
+go /media/arn/GODxSSD2/Traces/ db_mail_web db mail web
+go /media/arn/GODxSSD2/Traces/ db_stream_web db stream web
+go /media/arn/GODxSSD2/Traces/ file_mail_stream file mail stream
+go /media/arn/GODxSSD2/Traces/ file_mail_web file mail web
+go /media/arn/GODxSSD2/Traces/ file_stream_web file stream web
+go /media/arn/GODxSSD2/Traces/ mail_stream_web mail stream web
+go /media/arn/GODxSSD2/Traces/ app_db_file_mail app db file mail
+go /media/arn/GODxSSD2/Traces/ app_db_file_stream app db file stream
+go /media/arn/GODxSSD2/Traces/ app_db_file_web app db file web
+go /media/arn/GODxSSD2/Traces/ app_db_mail_stream app db mail stream
+go /media/arn/GODxSSD2/Traces/ app_db_mail_web app db mail web
+go /media/arn/GODxSSD2/Traces/ app_db_stream_web app db stream web
+go /media/arn/GODxSSD2/Traces/ app_file_mail_stream app file mail stream
+go /media/arn/GODxSSD2/Traces/ app_file_mail_web app file mail web
+go /media/arn/GODxSSD2/Traces/ app_file_stream_web app file stream web
+go /media/arn/GODxSSD2/Traces/ app_mail_stream_web app mail stream web
+go /media/arn/GODxSSD2/Traces/ db_file_mail_stream db file mail stream
+go /media/arn/GODxSSD2/Traces/ db_file_mail_web db file mail web
+go /media/arn/GODxSSD2/Traces/ db_file_stream_web db file stream web
+go /media/arn/GODxSSD2/Traces/ db_mail_stream_web db mail stream web
+go /media/arn/GODxSSD2/Traces/ file_mail_stream_web file mail stream web
+go /media/arn/GODxSSD2/Traces/ app_db_file_mail_stream app db file mail stream
+go /media/arn/GODxSSD2/Traces/ app_db_file_mail_web app db file mail web
+go /media/arn/GODxSSD2/Traces/ app_db_file_stream_web app db file stream web
+go /media/arn/GODxSSD2/Traces/ app_db_mail_stream_web app db mail stream web
+go /media/arn/GODxSSD2/Traces/ app_file_mail_stream_web app file mail stream web
+go /media/arn/GODxSSD2/Traces/ db_file_mail_stream_web db file mail stream web
+go /media/arn/GODxSSD2/Traces/ app_db_file_mail_stream_web app db file mail stream web
+
+shutdown -P

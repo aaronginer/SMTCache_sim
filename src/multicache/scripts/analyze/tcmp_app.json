@@ -1,0 +1,14 @@
+{
+    "title": "Load miss for threads compared between 2 setups",
+    "type": "tcompare",
+    "statistic": "Instructions per Schedule",
+    "central_tendency": "a_mean",
+    "thread_filter": ["http-nio-8080-A", "http-nio-8080-C", "http-nio-8080-e"],
+    "trace": {
+        "filter": "app",
+        "folders": {
+            "A_F": "/media/arn/GODxSSD2/Traces/app_db_lm_30s",
+            "A_F_SMT": "/media/arn/GODxSSD2/Traces/app_db_lm_smt_30s"
+        }
+    }
+}

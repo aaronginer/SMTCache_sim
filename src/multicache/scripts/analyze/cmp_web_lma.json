@@ -1,0 +1,21 @@
+{
+    "title": "LMA for benchmarks including web",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "a_mean",
+    "bars": [
+        "web",
+        "app_web",
+        "stream_web_smt"
+    ],
+    "trace": {
+        "web": {
+            "filter": "web",
+            "folders": {
+                "web": "/media/arn/GODxSSD2/Traces/web_lma_10s",
+                "app_web": "/media/arn/GODxSSD2/Traces/app_web_lma_30s",
+                "stream_web_smt": "/media/arn/GODxSSD2/Traces/stream_web_lma_smt_30s"
+            }
+        }
+    }
+}

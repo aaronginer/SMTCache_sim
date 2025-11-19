@@ -1,0 +1,1 @@
+service smbd stop

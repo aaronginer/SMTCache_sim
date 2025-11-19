@@ -1,0 +1,33 @@
+{
+    "title": "Eviction rate for benchmarks including app",
+    "type": "compare",
+    "statistic": "er",
+    "central_tendency": "a_mean",
+    "bars": [
+        "app_cpc3",
+        "app_db_smt_cpc3",
+        "app_file_smt_cpc3",
+        "app_mail_smt_cpc3",
+        "app_stream_smt_cpc3",
+        "app_web_smt_cpc3",
+        "app_db_cpc3",
+        "app_file_cpc3",
+        "app_db_web_cpc3"
+    ],
+    "trace": {
+        "app": {
+            "filter": "app",
+            "folders": {
+                "app_cpc3": "/media/arn/GODxSSD2/Traces/app_ssv_5s_cpc3",
+                "app_db_smt_cpc3": "/media/arn/GODxSSD2/Traces/app_db_ssv_smt_30s_cpc3",
+                "app_file_smt_cpc3": "/media/arn/GODxSSD2/Traces/app_file_ssv_smt_30s_cpc3",
+                "app_mail_smt_cpc3": "/media/arn/GODxSSD2/Traces/app_mail_ssv_smt_30s_cpc3",
+                "app_stream_smt_cpc3": "/media/arn/GODxSSD2/Traces/app_stream_ssv_smt_30s_cpc3",
+                "app_web_smt_cpc3": "/media/arn/GODxSSD2/Traces/app_web_ssv_smt_30s_cpc3",
+                "app_db_cpc3": "/media/arn/GODxSSD2/Traces/app_db_ssv_30s_cpc3",
+                "app_file_cpc3": "/media/arn/GODxSSD2/Traces/app_file_ssv_30s_cpc3",
+                "app_db_web_cpc3": "/media/arn/GODxSSD2/Traces/app_db_web_ssv_30s_cpc3"
+            }
+        }
+    }
+}

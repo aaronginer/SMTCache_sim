@@ -1,0 +1,19 @@
+{
+    "title": "Load miss for benchmarks including stream",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "a_mean",
+    "bars": [
+        "stream",
+        "cc_stream"
+    ],
+    "trace": {
+        "stream": {
+            "filter": "stream",
+            "folders": {
+                "stream": "/media/arn/GODxSSD2/Traces/stream_lm_5s",
+                "cc_stream": "/media/arn/GODxSSD2/Traces/cc_stream_lm_5s"
+            }
+        }
+    }
+}

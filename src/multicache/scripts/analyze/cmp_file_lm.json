@@ -1,0 +1,31 @@
+{
+    "title": "Load miss for benchmarks including file",
+    "type": "compare",
+    "statistic": "lmr",
+    "central_tendency": "median",
+    "bars": [
+        "file",
+        "app_file",
+        "file_web",
+        "app_file_smt",
+        "db_file_smt",
+        "file_mail_smt",
+        "file_stream_smt",
+        "file_web_smt"
+    ],
+    "trace": {
+        "file": {
+            "filter": "file",
+            "folders": {
+                "file": "/media/arn/GODxSSD2/Traces/file_lm_5s",
+                "app_file": "/media/arn/GODxSSD2/Traces/app_file_lm_30s",
+                "file_web": "/media/arn/GODxSSD2/Traces/file_web_lm_30s",
+                "app_file_smt": "/media/arn/GODxSSD2/Traces/app_file_lm_smt_30s",
+                "db_file_smt": "/media/arn/GODxSSD2/Traces/db_file_lm_smt_30s",
+                "file_mail_smt": "/media/arn/GODxSSD2/Traces/file_mail_lm_smt_30s",
+                "file_stream_smt": "/media/arn/GODxSSD2/Traces/file_stream_lm_smt_30s",
+                "file_web_smt": "/media/arn/GODxSSD2/Traces/file_web_lm_smt_30s"
+            }
+        }
+    }
+}

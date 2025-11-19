@@ -1,0 +1,12 @@
+{
+    "title": "",
+    "type": "hist",
+    "statistic": "lmr",
+    "trace": {
+        "filter": "file",
+        "folders": {
+            "file": "/media/arn/GODxSSD2/Traces/file_lm_5s",
+            "cc_file": "/media/arn/GODxSSD2/Traces/cc_file_lm_5s"
+        }
+    }
+}
